@@ -6,12 +6,12 @@
   "scripts": {
     "dist": "npm run dist.build",
     "dist.build": "npm run dist.build.css && npm run dist.build.js",
-    "dist.build.js": "babel src -d dist",
-	"dist.build.css": "node-sass src/sass/style.scss dist/css/style.css",
+    "dist.build.js": "webpack",
+    "dist.build.css": "node-sass src/sass/style.scss dist/css/style.css  --include-path node_modules --output-style compressed",
     "dist.watch": "concurrently --kill-others \"npm run dist.watch.css\" \"npm run dist.watch.js\"",
-    "dist.watch.js": "babel src -d dist --watch",
-	"dist.watch.css": "node-sass src/sass/style.scss dist/css/style.css -w",
-    "test": "node_modules/coffeekraken-testing-stack/run"
+    "dist.watch.js": "nodemon -w src -e js -x \"npm run dist.build.js\"",
+    "dist.watch.css": "nodemon -w src -e scss -x \"npm run dist.build.css\"",
+    "test": "coffeekraken-testing-stack"
   },
   "keywords": [
     "coffee",
