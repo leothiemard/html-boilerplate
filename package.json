@@ -12,6 +12,7 @@
     "dist.watch": "concurrently --kill-others \"npm run dist.watch.css\" \"npm run dist.watch.js\"",
     "dist.watch.js": "nodemon -w src -e js -x \"npm run dist.build.js\"",
     "dist.watch.css": "nodemon -w src -e scss -x \"npm run dist.build.css\"",
+    "dist.watch.img": "nodemon -w src/img  -x \"npm run dist.build.img\"",
     "test": "coffeekraken-testing-stack"
   },
   "keywords": [
