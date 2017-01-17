@@ -1,4 +1,4 @@
-# {project-name}
+# {project-name} <small>{version}</small>
 
 [![Build Status](https://travis-ci.org/{project-path}.svg)](https://travis-ci.org/{project-path})
 
