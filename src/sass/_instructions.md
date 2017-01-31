@@ -24,13 +24,15 @@ Here's some rules to follow in order to all work the same way across projects.
 	- |------- ```_all.scss```
 	- |--- ```style.scss```
 2. Each subfolder has to have an ```_all.scss``` file that import all his files
-3. Stick to a **known CSS naming convention** like:
+3. Document your CSS by writing docblocks
+ 	- Integrate it with [Carpenter](https://github.com/coffeekraken/carpenter) if needed
+4. Stick to a **known CSS naming convention** like:
 	- [BEM](http://getbem.com/introduction/) (prefered choice)
 	- [SMACCS](https://smacss.com/)
 	- Other choices... (has to be discussed with others before making crap on your own...)
-4. 1 file = 1 purpose
+5. 1 file = 1 purpose
 	- Split your codebase into multiple files that are **each responsible for one thing** (navs, lists, etc...)
-5. Nest selectors only when needed
+6. Nest selectors only when needed
 
 Don't do:
 
@@ -49,9 +51,9 @@ But instead
 .my-block {
 	// code here...
 }
-.my-block__title {
-	// code here...
-}
+	.my-block__title {
+		// code here...
+	}
 ```
 
 Meaningful nesting
@@ -60,9 +62,9 @@ Meaningful nesting
 .my-block {
 	// code here...
 }
-.my-block__title {
-	// code here...
-}
+	.my-block__title {
+		// code here...
+	}
 .my-block--modified {
 	// code here...
 	.my-block__title {

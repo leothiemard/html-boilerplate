@@ -13,9 +13,11 @@ Here's some rules to follow in order to all work the same way across projects.
 	- Use **webpack** when needed to package your codebase
 3. Syntax
 	- Use **meaningful variables names**
-	- Comment your code using [docblock](https://en.wikipedia.org/wiki/Docblock)
 	- Prefer understandable statements over too complex ones just to prove your IQ
-3. Don't be a jerk
+4. Document your code!
+	- Use the docblock syntax to document your code
+	- Check the [docblock-to-markdown](https://github.com/coffeekraken/docblock-to-markdown) package to check supported dobclock tags
+5. Don't be a jerk
 	- Your work in team, so don't do crap on your own
 	- Document your code when needed!!!
 	- Stick to standards is a good way to start...
