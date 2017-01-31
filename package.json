@@ -2,6 +2,11 @@
   "name": "{project-name}",
   "version": "{project-version}",
   "description": "{project-description}",
+  "homepage": "{project-url}",
+  "repository": {
+    "type": "git",
+    "url": "{project-url}"
+  },
   "main": "dist/index.js",
   "scripts": {
     "dist": "npm run dist.build",
@@ -13,6 +18,7 @@
     "dist.watch.js": "nodemon -w src -e js -x \"npm run dist.build.js\"",
     "dist.watch.css": "nodemon -w src -e scss -x \"npm run dist.build.css\"",
     "dist.watch.img": "nodemon -w src/img  -x \"npm run dist.build.img\"",
+    "start": "http-server .",
     "test": "coffeekraken-testing-stack"
   },
   "keywords": [
@@ -36,8 +42,9 @@
     "chai": "^3.5.0",
     "coffeekraken-testing-stack": "git+https://github.com/Coffeekraken/testing-stack.git#release/0.0.1",
     "concurrently": "^3.1.0",
+    "http-server": "^0.9.0",
     "imagemin-cli": "^3.0.0",
-    "node-sass": "^4.0.0",
+    "node-sass": "4.3.0",
     "nodemon": "^1.11.0",
     "open": "0.0.5",
     "webcomponents.js": "^0.7.23",
