@@ -9,16 +9,16 @@
   },
   "main": "dist/index.js",
   "scripts": {
-    "dist": "npm run dist.build",
-    "dist.build": "npm run dist.build.css && npm run dist.build.js",
-    "dist.build.js": "webpack",
-    "dist.build.css": "node-sass src/sass/style.scss dist/css/style.css  --include-path node_modules --output-style compressed",
-    "dist.build.img": "imagemin src/img/* --out-dir=dist/img",
+    "dist": "npm run dist.css && npm run dist.js && npm run dist.img",
+    "dist.js": "webpack",
+    "dist.css": "node-sass src/sass/style.scss dist/css/style.css  --include-path node_modules --output-style compressed",
+    "dist.img": "imagemin src/img/* --out-dir=dist/img",
     "dist.watch": "concurrently --kill-others \"npm run dist.watch.css\" \"npm run dist.watch.js\"",
-    "dist.watch.js": "nodemon -w src -e js -x \"npm run dist.build.js\"",
-    "dist.watch.css": "nodemon -w src -e scss -x \"npm run dist.build.css\"",
-    "dist.watch.img": "nodemon -w src/img  -x \"npm run dist.build.img\"",
-    "start": "http-server .",
+    "dist.watch.js": "nodemon -w src -e js -x \"npm run dist.js\"",
+    "dist.watch.css": "nodemon -w src -e scss -x \"npm run dist.css\"",
+    "dist.watch.img": "nodemon -w src/img -x \"npm run dist.img\"",
+    "start": "npm run dist.watch && npm run server",
+		"server": "http-server .",
     "test": "coffeekraken-testing-stack"
   },
   "keywords": [
@@ -29,7 +29,8 @@
   "author": "Coffeekraken <hello@coffeekraken.io>",
   "license": "MIT",
   "dependencies": {
-    "coffeekraken-sugar": "git+https://git@github.com/Coffeekraken/sugar.git#release/0.0.1"
+    "coffeekraken-sugar": "git+https://git@github.com/Coffeekraken/sugar.git#release/0.0.1",
+    "coffeekraken-gridle": "git+https://git@github.com/Coffeekraken/gridle.git#release/0.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
