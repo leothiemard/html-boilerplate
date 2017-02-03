@@ -30,6 +30,8 @@ module.exports = {
 		],
 
 		// additionnal displays files to load
-		displays : []
+		displays : [
+			'node_modules/coffeekraken-gridle/carpenter.displays.js'
+		]
 	}
 }
