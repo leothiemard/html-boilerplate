@@ -35,8 +35,8 @@
   "author": "Coffeekraken <hello@coffeekraken.io>",
   "license": "MIT",
   "dependencies": {
-    "coffeekraken-sugar": "git+ssh://git@github.com/Coffeekraken/sugar.git#release/0.0.1",
-    "coffeekraken-gridle": "git+ssh://git@github.com/Coffeekraken/gridle.git#release/3.0.0"
+    "coffeekraken-sugar": "https://github.com/Coffeekraken/sugar.git#release/0.0.1",
+    "coffeekraken-gridle": "https://github.com/Coffeekraken/gridle.git#release/3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -48,8 +48,8 @@
     "babel-preset-stage-0": "^6.16.0",
     "chai": "^3.5.0",
     "chokidar-cli": "^1.2.0",
-    "coffeekraken-carpenter": "git+ssh://git@github.com/Coffeekraken/carpenter.git#release/0.0.1",
-    "coffeekraken-testing-stack": "git+ssh://git@github.com/Coffeekraken/testing-stack.git#release/0.0.1",
+    "coffeekraken-carpenter": "https://github.com/Coffeekraken/carpenter.git#release/0.0.1",
+    "coffeekraken-testing-stack": "https://github.com/Coffeekraken/testing-stack.git#release/0.0.1",
     "concurrently": "^3.1.0",
     "http-server": "^0.9.0",
     "imagemin-cli": "^3.0.0",
