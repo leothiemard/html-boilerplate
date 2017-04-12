@@ -1,21 +1,66 @@
-# {project-name} <small>{version}</small>
+# {project-name} <img src=".resources/coffeekraken-logo.jpg" height="25px" />
 
-[![Build Status](https://travis-ci.org/{project-path}.svg)](https://travis-ci.org/{project-path})
+<p>
+	<a href="https://travis-ci.org/{repository-path}">
+		<img src="https://img.shields.io/travis/{repository-path}.svg?style=flat-square" />
+	</a>
+	<a href="https://www.npmjs.com/package/{package-name}">
+		<img src="https://img.shields.io/npm/v/{package-name}.svg?style=flat-square" />
+	</a>
+	<a href="https://github.com/{repository-path}/blob/master/LICENSE.txt">
+		<img src="https://img.shields.io/npm/l/{package-name}.svg?style=flat-square" />
+	</a>
+	<!-- <a href="https://github.com/{repository-path}">
+		<img src="https://img.shields.io/npm/dt/{package-name}.svg?style=flat-square" />
+	</a>
+	<a href="https://github.com/{repository-path}">
+		<img src="https://img.shields.io/github/forks/{repository-path}.svg?style=social&label=Fork&style=flat-square" />
+	</a>
+	<a href="https://github.com/{repository-path}">
+		<img src="https://img.shields.io/github/stars/{repository-path}.svg?style=social&label=Star&style=flat-square" />
+	</a>-->
+	<a href="https://twitter.com/{twitter-username}">
+		<img src="https://img.shields.io/twitter/url/http/{twitter-username}.svg?style=social&style=flat-square" />
+	</a>
+	<a href="http://{website-url}">
+		<img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=flat-square&label={website-url}&colorB=f2bc2b&style=flat-square" />
+	</a>
+</p>
 
 {project-description}
-
-* Homepage: []()
-* Source: []()
-* Twitter: []()
-
-## Quick start
-
-{project-quick-start}
 
 ## Features
 
 {project-features}
 
+## Table of content
+
+1. **[Go to website](http://{website-url})**
+2. [Install](#readme-install)
+3. [Get Started](#readme-get-started)
+4. [Scripts](#readme-scripts)
+5. [Browsers support](#readme-browsers-support)
+6. [Contribute](#readme-contribute)
+7. [Who are Coffeekraken?](#readme-who-are-coffeekraken)
+8. [Licence](#readme-license)
+
+<a name="readme-install"></a>
+## Install
+
+```
+npm install
+```
+
+<a name="readme-get-started"></a>
+## Get Started
+
+Run this command to start working as quickly as possible
+
+```
+npm start
+```
+
+<a name="readme-scripts"></a>
 ## Scripts
 
 - ```npm run dist``` : Build the distribution
@@ -38,16 +83,11 @@
 
 ## Browser support
 
-* Chrome *(latest 2)*
-* Firefox *(latest 2)*
-* Internet Explorer 10+
-* Opera *(latest 2)*
-* Safari *(latest 2)*
+| [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/edge.png" alt="IE / Edge" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/firefox.png" alt="Firefox" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/chrome.png" alt="Chrome" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/safari.png" alt="Safari" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
+| --------- | --------- | --------- | --------- |
+| IE11+ | last 2 versions| last 2 versions| last 2 versions
 
-## Documentation
-
-Take a look at the [documentation table of contents](doc/TOC.md).
-The documentation is bundled with the project so be careful to check that your version correspond to this documentation if you check it online.
+> As browsers are automatically updated, we will keep as reference the last two versions of each but this component can work on older ones as well.
 
 ## License
 
