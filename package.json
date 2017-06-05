@@ -18,7 +18,7 @@
     "dist.prod": "npm run dist.prod.css && npm run dist.prod.js && npm run dist.img && npm run dist.fonts",
     "dist.prod.js": "webpack --config webpack.prod.config.js",
     "dist.prod.css": "node-sass src/sass/style.scss dist/css/style.css  --include-path node_modules --output-style compressed",
-    "dist.watch": "concurrently --kill-others \"npm run dist.watch.css\" \"npm run dist.watch.js\" \"npm run dist.watch.img\" \"npm run dist.watch.fonts\"",
+    "dist.watch": "concurrently --kill-others \"npm run dist.watch.css\" \"npm run dist.watch.js\" \"npm run dist.watch.img\" \"npm run dist.watch.fonts\" \"npm run dist.watch.html\"",
     "dist.watch.js": "nodemon -w src -e js -x \"npm run dist.js\"",
     "dist.watch.css": "nodemon -w src -e scss -x \"npm run dist.css\"",
     "dist.watch.img": "chokidar 'src/img/**/*' -c \"npm run dist.img\"",
