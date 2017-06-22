@@ -8,26 +8,27 @@
     "url": "{project-url}"
   },
   "main": "dist/index.js",
+  "watch": {
+    "dist.js": "src/js/**/*.js",
+    "dist.css": "src/css/**/*.{scss,sass,css}",
+    "dist.img": "src/img/**/*.{jpg,jpeg,png,gif,bmp,svg}",
+    "dist.fonts": "src/fonts/**/*"
+  },
   "scripts": {
-		"dist": "npm run dist.css && npm run dist.js && npm run dist.img && npm run dist.fonts && npm run dist.html",
+    "dist": "npm run dist.css && npm run dist.js && npm run dist.img && npm run dist.fonts",
     "dist.js": "webpack",
     "dist.css": "node-sass src/sass/style.scss dist/css/style.css  --include-path node_modules --output-style expanded",
     "dist.img": "rm -rf dist/img && node ./.scripts/imagemin.js",
-		"dist.html": "cat index.src.html | critical --minify true --inline > index.html",
-		"dist.fonts": "rm -rf dist/fonts && cp -R src/fonts dist/fonts",
+    "dist.fonts": "rm -rf dist/fonts && cp -R src/fonts dist/fonts",
     "dist.prod": "npm run dist.prod.css && npm run dist.prod.js && npm run dist.img && npm run dist.fonts",
     "dist.prod.js": "webpack --config webpack.prod.config.js",
     "dist.prod.css": "node-sass src/sass/style.scss dist/css/style.css  --include-path node_modules --output-style compressed",
-    "dist.watch": "concurrently --kill-others \"npm run dist.watch.css\" \"npm run dist.watch.js\" \"npm run dist.watch.img\" \"npm run dist.watch.fonts\" \"npm run dist.watch.html\"",
-    "dist.watch.js": "nodemon -w src -e js -x \"npm run dist.js\"",
-    "dist.watch.css": "nodemon -w src -e scss -x \"npm run dist.css\"",
-    "dist.watch.img": "chokidar 'src/img/**/*' -c \"npm run dist.img\"",
-    "dist.watch.fonts": "chokidar 'src/fonts/**/*' -c \"npm run dist.fonts\"",
-		"dist.watch.html": "chokidar index.src.html -c \"npm run dist.html\"",
     "carpenter": "coffeekraken-carpenter",
-    "start": "concurrently --kill-others \"npm run dist.watch\" \"npm run server\"",
+    "watch": "npm-watch",
+    "start": "concurrently --kill-others \"npm run watch\" \"npm run server\"",
     "server": "http-server .",
-    "test": "coffeekraken-testing-stack"
+    "test": "coffeekraken-testing-stack",
+    "changelog": "git-changelog --version_name $npm_package_version  --app_name $npm_package_name --intro \"$npm_package_description\" --logo \".resources/coffeekraken-logo.jpg\""
   },
   "keywords": [
     "coffee",
@@ -37,8 +38,8 @@
   "author": "Coffeekraken <hello@coffeekraken.io>",
   "license": "MIT",
   "dependencies": {
-    "coffeekraken-sugar": "https://github.com/Coffeekraken/sugar.git#release/0.0.1",
-    "coffeekraken-gridle": "https://github.com/Coffeekraken/gridle.git#release/3.0.0"
+    "coffeekraken-sugar": "^1.0.0",
+    "coffeekraken-gridle": "3.0.0-rc.1"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -50,10 +51,11 @@
     "babel-preset-stage-0": "^6.16.0",
     "chai": "^3.5.0",
     "chokidar-cli": "^1.2.0",
-    "coffeekraken-carpenter": "https://github.com/Coffeekraken/carpenter.git#release/0.0.1",
-    "coffeekraken-testing-stack": "https://github.com/Coffeekraken/testing-stack.git#release/0.0.1",
+    "coffeekraken-carpenter": "^1.0.0",
+    "coffeekraken-testing-stack": "0.0.2",
     "concurrently": "^3.1.0",
-		"critical": "^0.8.4",
+    "critical": "^0.8.4",
+    "git-changelog": "^1.1.2",
     "http-server": "^0.9.0",
     "imagemin": "^5.2.2",
     "imagemin-gifsicle": "^5.1.0",
@@ -64,7 +66,8 @@
     "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
     "open": "0.0.5",
-    "webcomponents.js": "^0.7.23",
+    "watch": "^1.0.2",
+    "webcomponents.js": "^0.7.24",
     "webpack": "^2.0.0"
   }
 }
