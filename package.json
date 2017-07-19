@@ -9,10 +9,30 @@
   },
   "main": "dist/index.js",
   "watch": {
-    "dist.js": "src/js/**/*.js",
-    "dist.css": "src/css/**/*.{scss,sass,css}",
-    "dist.img": "src/img/**/*.{jpg,jpeg,png,gif,bmp,svg}",
-    "dist.fonts": "src/fonts/**/*"
+    "dist.js": {
+      "patterns": [
+        "src/js/**/*"
+      ],
+      "extensions": "js"
+    },
+    "dist.css": {
+      "patterns": [
+        "src/css/**/*"
+      ],
+      "extensions": "scss,sass,css"
+    },
+    "dist.img": {
+      "patterns": [
+        "src/img/**/*"
+      ],
+      "extensions": "jpg,jpeg,png,gif,bmp,svg"
+    },
+    "dist.fonts": {
+      "patterns": [
+        "src/fonts/**/*"
+      ],
+      "extensions": "eot,woff,woff2,ttf,otf,svg,svgz"
+    }
   },
   "scripts": {
     "dist": "npm run dist.css && npm run dist.js && npm run dist.img && npm run dist.fonts",
