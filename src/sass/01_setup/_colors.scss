@@ -1,0 +1,35 @@
+@include s-setup((
+	colors : (
+		primary : (
+			color : #82A8BB,
+			modifiers : (
+				'80' : -opacity .8,
+				'60' : -opacity .6,
+				'40' : -opacity .4,
+			)
+		),
+		secondary : (
+			color : #2D8067,
+			modifiers : (
+				'80' : -opacity .8,
+				'60' : -opacity .6,
+				'40' : -opacity .4,
+			)
+		),
+		'black' : (
+			color : #000
+		),
+		'white' : (
+			color : #fff
+		),
+		default : (
+			color : #5f5f5f
+		),
+		text : (
+			color : default
+		),
+		title : (
+			color : default
+		)
+	)
+));

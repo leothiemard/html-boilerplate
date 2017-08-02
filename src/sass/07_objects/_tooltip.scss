@@ -1,0 +1,16 @@
+/**
+ * Tooltips
+ */
+@include s-context((
+	colors : (
+		default : primary
+	)
+)) {
+	@include s-tooltip-classes(
+		$colors : default,
+		$sides : t
+	);
+	.tooltip {
+		white-space: nowrap;
+	}
+}

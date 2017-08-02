@@ -1,0 +1,11 @@
+.topbar {
+	background:white;
+	position:fixed;
+	top:0; left:0;
+	width:100%;
+	padding:s-rem(15px) 0;
+	z-index:10;
+}
+	.topbar__logo {
+		width: s-rem(120px);
+	}

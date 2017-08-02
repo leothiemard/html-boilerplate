@@ -1,0 +1,76 @@
+/**
+ * Button styling
+ */
+@include s-context((
+	colors : (
+		default : primary
+	),
+	look-and-feel : (
+		padding-vertical : 3em,
+		padding-horizontal : 1.5em
+	)
+)) {
+	@include s-button-classes(
+		$colors : default
+	);
+
+	.btn {
+		@extend .btn--default;
+		@include s-font(
+			$size : s-rem(14px),
+			$transform : uppercase
+		);
+
+		&:hover {
+			background: s-color(white) !important;
+			color : s-color(primary);
+		}
+
+		&--outline:hover {
+			color : s-color(primary, -darken 30%) !important;
+			border-color: s-color(primary, -darken 30%) !important;
+			// background-color : s-color(primary, '40') !important;
+		}
+	}
+
+	/**
+	 * @name 	```.btn-addon```
+	 * Display a nice addon right next the the button
+	 *
+	 * @styleguide 	Objects / Buttons addon
+	 * @example 	html
+	 * <button class="btn">
+	 * 	Do something great!
+	 * </button><span class="btn-addon">250$</span>
+	 */
+	.btn-addon {
+		@extend .btn;
+		margin-left: s-rem(1px);
+		cursor: auto !important;
+		&:hover {
+			background-color: s-color(primary) !important;
+			color : s-color(white) !important;
+			border-color: s-color(primary) !important;
+		}
+	}
+
+	/**
+	 * @name 	```.btn--outline + .btn-addon```
+	 * Display a nice addon right next the the button
+	 *
+	 * @styleguide 	Objects / Buttons addon
+	 * @example 	html
+	 * <button class="btn btn--outline">
+	 * 	Do something great!
+	 * </button><span class="btn-addon">250$</span>
+	 */
+	.btn--outline + .btn-addon {
+		@extend .btn--outline;
+		margin-left: s-rem(-1px);
+		cursor: auto !important;
+		&:hover {
+			background-color: transparent !important;
+			color: s-color(primary) !important;
+		}
+	}
+}

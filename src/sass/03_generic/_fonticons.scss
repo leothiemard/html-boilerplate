@@ -1,0 +1,290 @@
+@font-face {
+	font-family: "fonticons";
+	src: url('../fonts/fonticons/fonticons.eot');
+	src: url('../fonts/fonticons/fonticons.eot?#iefix') format('eot'),
+		url('../fonts/fonticons/fonticons.woff2') format('woff2'),
+		url('../fonts/fonticons/fonticons.woff') format('woff'),
+		url('../fonts/fonticons/fonticons.ttf') format('truetype'),
+		url('../fonts/fonticons/fonticons.svg#fonticons') format('svg');
+}
+
+@mixin icon-styles(
+	$position : after
+) {
+	&:#{$position} {
+		font-family: "fonticons";
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: normal;
+		// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+		text-decoration: none;
+		text-transform: none;
+	}
+}
+
+@mixin icon(
+	$icon,
+	$position : after
+) {
+	@include icon-styles($position);
+	
+		@if $icon == angle-down {
+			&:#{$position} {
+				content: "\E001";
+				@content;
+			}
+		}
+	
+		@if $icon == angle-left {
+			&:#{$position} {
+				content: "\E002";
+				@content;
+			}
+		}
+	
+		@if $icon == angle-right {
+			&:#{$position} {
+				content: "\E003";
+				@content;
+			}
+		}
+	
+		@if $icon == angle-up {
+			&:#{$position} {
+				content: "\E004";
+				@content;
+			}
+		}
+	
+		@if $icon == arrow-bottom {
+			&:#{$position} {
+				content: "\E005";
+				@content;
+			}
+		}
+	
+		@if $icon == arrow-left {
+			&:#{$position} {
+				content: "\E006";
+				@content;
+			}
+		}
+	
+		@if $icon == arrow-right {
+			&:#{$position} {
+				content: "\E007";
+				@content;
+			}
+		}
+	
+		@if $icon == arrow-simple-left {
+			&:#{$position} {
+				content: "\E008";
+				@content;
+			}
+		}
+	
+		@if $icon == arrow-simple-right {
+			&:#{$position} {
+				content: "\E009";
+				@content;
+			}
+		}
+	
+		@if $icon == arrow-top {
+			&:#{$position} {
+				content: "\E00A";
+				@content;
+			}
+		}
+	
+		@if $icon == bubble-faq {
+			&:#{$position} {
+				content: "\E00B";
+				@content;
+			}
+		}
+	
+		@if $icon == check-ok {
+			&:#{$position} {
+				content: "\E00C";
+				@content;
+			}
+		}
+	
+		@if $icon == cross-close {
+			&:#{$position} {
+				content: "\E00D";
+				@content;
+			}
+		}
+	
+		@if $icon == formular-contact {
+			&:#{$position} {
+				content: "\E00E";
+				@content;
+			}
+		}
+	
+		@if $icon == letter-contact {
+			&:#{$position} {
+				content: "\E00F";
+				@content;
+			}
+		}
+	
+		@if $icon == pencil-modify {
+			&:#{$position} {
+				content: "\E010";
+				@content;
+			}
+		}
+	
+		@if $icon == phone-contact {
+			&:#{$position} {
+				content: "\E011";
+				@content;
+			}
+		}
+	
+		@if $icon == pin-localisation {
+			&:#{$position} {
+				content: "\E012";
+				@content;
+			}
+		}
+	
+		@if $icon == play-circle {
+			&:#{$position} {
+				content: "\E013";
+				@content;
+			}
+		}
+	
+		@if $icon == search {
+			&:#{$position} {
+				content: "\E014";
+				@content;
+			}
+		}
+	
+}
+
+.icon:after {
+	@include icon-styles(after);
+}
+
+
+.icon-angle-down {
+	@include icon(angle-down, after);
+}
+
+.icon-angle-left {
+	@include icon(angle-left, after);
+}
+
+.icon-angle-right {
+	@include icon(angle-right, after);
+}
+
+.icon-angle-up {
+	@include icon(angle-up, after);
+}
+
+.icon-arrow-bottom {
+	@include icon(arrow-bottom, after);
+}
+
+.icon-arrow-left {
+	@include icon(arrow-left, after);
+}
+
+.icon-arrow-right {
+	@include icon(arrow-right, after);
+}
+
+.icon-arrow-simple-left {
+	@include icon(arrow-simple-left, after);
+}
+
+.icon-arrow-simple-right {
+	@include icon(arrow-simple-right, after);
+}
+
+.icon-arrow-top {
+	@include icon(arrow-top, after);
+}
+
+.icon-bubble-faq {
+	@include icon(bubble-faq, after);
+}
+
+.icon-check-ok {
+	@include icon(check-ok, after);
+}
+
+.icon-cross-close {
+	@include icon(cross-close, after);
+}
+
+.icon-formular-contact {
+	@include icon(formular-contact, after);
+}
+
+.icon-letter-contact {
+	@include icon(letter-contact, after);
+}
+
+.icon-pencil-modify {
+	@include icon(pencil-modify, after);
+}
+
+.icon-phone-contact {
+	@include icon(phone-contact, after);
+}
+
+.icon-pin-localisation {
+	@include icon(pin-localisation, after);
+}
+
+.icon-play-circle {
+	@include icon(play-circle, after);
+}
+
+.icon-search {
+	@include icon(search, after);
+}
+
+
+
+
+/**
+ * @name 	Icons
+ * Display an icon
+ * @styleguide 		Generic / Icons
+ * @example 		html
+ * <i class="icon icon-angle-down s-bigger"></i>
+ * <i class="icon icon-angle-left s-bigger"></i>
+ * <i class="icon icon-angle-right s-bigger"></i>
+ * <i class="icon icon-angle-up s-bigger"></i>
+ * <i class="icon icon-arrow-bottom s-bigger"></i>
+ * <i class="icon icon-arrow-left s-bigger"></i>
+ * <i class="icon icon-arrow-right s-bigger"></i>
+ * <i class="icon icon-arrow-simple-left s-bigger"></i>
+ * <i class="icon icon-arrow-simple-right s-bigger"></i>
+ * <i class="icon icon-arrow-top s-bigger"></i>
+ * <i class="icon icon-bubble-faq s-bigger"></i>
+ * <i class="icon icon-check-ok s-bigger"></i>
+ * <i class="icon icon-cross-close s-bigger"></i>
+ * <i class="icon icon-formular-contact s-bigger"></i>
+ * <i class="icon icon-letter-contact s-bigger"></i>
+ * <i class="icon icon-pencil-modify s-bigger"></i>
+ * <i class="icon icon-phone-contact s-bigger"></i>
+ * <i class="icon icon-pin-localisation s-bigger"></i>
+ * <i class="icon icon-play-circle s-bigger"></i>
+ * <i class="icon icon-search s-bigger"></i>
+
+ */
+

@@ -1,0 +1,12 @@
+/**
+ * Form styling
+ */
+@include s-form-classes(
+    $colors : default primary secondary
+);
+
+input {
+	@include s-placeholder() {
+		color: s-color(text, -opacity .3);
+	}
+}

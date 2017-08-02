@@ -1,0 +1,7 @@
+@include s-setup((
+	transitions : (
+		slow : all .5s ease-in-out 0s,
+		default : all .2s ease-in-out 0s,
+		fast : all .1s ease-in-out 0s
+	)
+));

@@ -1,0 +1,58 @@
+.nav {
+
+}
+
+/**
+ * @name 		```.nav.nav--topbar```
+ * Display the topbar navigation
+ * @styleguide 		Objects / Navs
+ * @example 		html
+ * <ul class="nav nav--topbar">
+ * 	<li class="nav__item">
+ * 		<a class="active" href="#" title="...">Item #1</a>
+ * 	</li>
+ * 	<li class="nav__item">
+ * 		<a href="#" title="...">Item #2</a>
+ * 	</li>
+ * 	<li class="nav__item">
+ * 		<a href="#" title="...">Item #3</a>
+ * 	</li>
+ * </ul>
+ */
+.nav--topbar {
+	margin-left: s-rem(-15px);
+	margin-right: s-rem(-15px);
+	@include s-font(
+		$size : s-rem(18px),
+		$transform : uppercase,
+		$decoration : none
+	);
+
+	.nav__item {
+		display:inline-block;
+
+		> a {
+			color : s-color(text, -opacity .5);
+			display:block;
+			padding: s-rem(10px) s-rem(15px);
+
+			&:hover,
+			&.active {
+				color : s-color(text);
+			}
+		}
+	}
+}
+
+.nav--topbar-right {
+	@extend .nav--topbar;
+	margin-left:s-rem(-5px);
+	margin-right:s-rem(-5px);
+	font-size: s-rem(28px);
+
+	.nav__item {
+		> a {
+			padding: s-rem(10px) s-rem(5px);
+		}
+	}
+}

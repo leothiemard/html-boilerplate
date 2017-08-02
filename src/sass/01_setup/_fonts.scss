@@ -1,0 +1,20 @@
+@include s-setup((
+    fonts : (
+		montserrat-extra-light : (
+			font-family : Montserrat,
+			font-weight : 200
+		),
+		montserrat-light : (
+			font-family : Montserrat,
+			font-weight : 300
+		),
+		montserrat-regular : (
+			font-family : Montserrat,
+			font-weight : 400
+		),
+		montserrat-bold : (
+			font-family : Montserrat,
+			font-weight : 700
+		)
+    )
+));

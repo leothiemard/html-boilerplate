@@ -1,6 +1,6 @@
 {
-  "name": "{project-name}",
-  "version": "{project-version}",
+  "name": "ploom-brandsite-template",
+  "version": "1.0.0",
   "description": "{project-description}",
   "homepage": "{project-url}",
   "repository": {
@@ -17,7 +17,7 @@
     },
     "dist.css": {
       "patterns": [
-        "src/css/**/*"
+        "src/sass/**/*"
       ],
       "extensions": "scss,sass,css"
     },
@@ -32,21 +32,29 @@
         "src/fonts/**/*"
       ],
       "extensions": "eot,woff,woff2,ttf,otf,svg,svgz"
+    },
+    "dist.fonticon": {
+      "patterns": [
+        "src/icons/**/*"
+      ],
+      "extensions": "svg,svgz"
     }
   },
   "scripts": {
-    "dist": "npm run dist.css && npm run dist.js && npm run dist.img && npm run dist.fonts",
-    "dist.js": "webpack",
-    "dist.css": "node-sass src/sass/style.scss dist/css/style.css  --include-path node_modules --output-style expanded",
-    "dist.img": "rm -rf dist/img && node ./.scripts/imagemin.js",
-    "dist.fonts": "rm -rf dist/fonts && cp -R src/fonts dist/fonts",
+    "dist": "npm run dist.fonticon && npm run dist.css && npm run dist.js && npm run dist.img && npm run dist.fonts",
+    "dist.js": "webpack && TITLE=dist.js ICON=js npm run notify",
+    "dist.css": "node-sass src/sass/style.scss dist/css/style.css  --include-path node_modules --output-style expanded && TITLE=dist.css ICON=css npm run notify",
+    "dist.img": "rm -rf dist/img && node ./.scripts/imagemin.js && TITLE=dist.img ICON=img npm run notify",
+    "dist.fonts": "rm -rf dist/fonts && cp -R src/fonts dist/fonts && TITLE=dist.fonts ICON=fonts npm run notify",
+    "dist.fonticon": "gulp iconfont && TITLE=dist.fonticon ICON=icons npm run notify",
     "dist.prod": "npm run dist.prod.css && npm run dist.prod.js && npm run dist.img && npm run dist.fonts",
-    "dist.prod.js": "webpack --config webpack.prod.config.js",
-    "dist.prod.css": "node-sass src/sass/style.scss dist/css/style.css  --include-path node_modules --output-style compressed",
+    "dist.prod.js": "webpack --config webpack.prod.config.js && TITLE=dist.prod.js ICON=js npm run notify",
+    "dist.prod.css": "node-sass src/sass/style.scss dist/css/style.css  --include-path node_modules --output-style compressed && TITLE=dist.prod.css ICON=css npm run notify",
     "carpenter": "coffeekraken-carpenter",
+    "notify": "terminal-notifier -title $TITLE -message '🍔 Build finished' -group $TITLE -appIcon .resources/success.png -contentImage .resources/icon-$ICON.png -group $ICON",
     "watch": "npm-watch",
-    "start": "concurrently --kill-others \"npm run watch\" \"npm run server\"",
-    "server": "http-server .",
+    "start": "concurrently --kill-others \"npm run watch\" \"npm run server\" \"npm run carpenter\"",
+    "server": "node .scripts/php-server.js",
     "test": "coffeekraken-testing-stack",
     "changelog": "git-changelog --version_name $npm_package_version  --app_name $npm_package_name --intro \"$npm_package_description\" --logo \".resources/coffeekraken-logo.jpg\""
   },
@@ -58,8 +66,27 @@
   "author": "Coffeekraken <hello@coffeekraken.io>",
   "license": "MIT",
   "dependencies": {
+    "coffeekraken-gridle": "3.0.0-rc.1",
+    "coffeekraken-s-activate-component": "^1.0.0",
+    "coffeekraken-s-bodymovin-component": "^1.0.0",
+    "coffeekraken-s-dialog-component": "^1.0.0",
+    "coffeekraken-s-drawer-component": "^1.0.0",
+    "coffeekraken-s-equalize-component": "^1.0.0",
+    "coffeekraken-s-google-map-component": "^1.0.0",
+    "coffeekraken-s-google-map-info-window-component": "^1.0.0",
+    "coffeekraken-s-google-map-marker-component": "^1.0.0",
+    "coffeekraken-s-label-push-component": "^1.0.0",
+    "coffeekraken-s-radiobox-component": "^1.0.0",
+    "coffeekraken-s-range-component": "^1.0.0",
+    "coffeekraken-s-select-component": "^1.0.0",
+    "coffeekraken-s-share-component": "^1.0.0",
+    "coffeekraken-s-slideshow-interactive-component": "^1.0.0",
+    "coffeekraken-s-validator-component": "^1.0.0",
     "coffeekraken-sugar": "^1.0.0",
-    "coffeekraken-gridle": "3.0.0-rc.1"
+    "cssuseragent": "^2.1.31",
+    "fastclick": "^1.0.6",
+    "object-fit-images": "^3.2.3",
+    "object-fit-videos": "^1.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -76,16 +103,21 @@
     "concurrently": "^3.1.0",
     "critical": "^0.8.4",
     "git-changelog": "^1.1.2",
-    "http-server": "^0.9.0",
+    "gulp": "^3.9.1",
+    "gulp-iconfont": "^8.0.1",
+    "gulp-iconfont-css": "^2.1.0",
     "imagemin": "^5.2.2",
     "imagemin-gifsicle": "^5.1.0",
     "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-pngquant": "^5.0.0",
     "imagemin-svgo": "^5.2.0",
     "lodash": "^4.17.4",
+    "node-php-server": "^0.1.2",
     "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
+    "npm-watch": "^0.2.0",
     "open": "0.0.5",
+    "terminal-notifier": "^0.1.2",
     "watch": "^1.0.2",
     "webcomponents.js": "^0.7.24",
     "webpack": "^2.0.0"

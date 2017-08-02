@@ -1,0 +1,80 @@
+@include s-typography-classes();
+
+.#{s-text-format-class()} h1,
+.h1 {
+	@include s-font(
+		montserrat-light,
+		$size : s-rem(62px),
+		$height : s-rem(70px)
+	);
+}
+
+.#{s-text-format-class()} h2,
+.h2 {
+	@include s-font(
+		montserrat-extra-light,
+		$size : s-rem(62px)
+	);
+}
+
+.#{s-text-format-class()} h3,
+.h3 {
+	@include s-font(
+		montserrat-extra-light,
+		$size : s-rem(36px)
+	);
+}
+
+.#{s-text-format-class()} h4,
+.h4 {
+	@include s-font(
+		montserrat-bold,
+		$size : s-rem(28px)
+	);
+}
+
+.#{s-text-format-class()} h5,
+.h5 {
+	@include s-font(
+		montserrat-light,
+		$size : s-rem(32px)
+	);
+	opacity : .4;
+}
+
+.#{s-text-format-class()} h6,
+.h6 {
+	@include s-font(
+		montserrat-bold,
+		$size : s-rem(16px),
+		$transform : uppercase
+	);
+	opacity : .8;
+}
+
+.#{s-text-format-class()} p,
+.p {
+	@include s-font(
+		montserrat-light,
+		$size : s-rem(14px)
+	);
+}
+
+.#{s-text-format-class()} p.lead,
+.p--lead {
+	@include s-font(
+		montserrat-light,
+		$size : s-rem(20px),
+		$height : s-rem(36px)
+	);
+}
+
+a {
+	text-decoration:none;
+}
+
+.#{s-text-format-class()} a,
+.link {
+	text-decoration:underline;
+	color: s-color(link);
+}

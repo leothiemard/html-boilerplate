@@ -1,0 +1,39 @@
+/**
+ * @name 	Section
+ * Display a section with padding on ton and bottom based on the spaces in settings
+ * @styleguide 		Blocks / Sections
+ * @example 	html
+ * <section class="section">
+ * 	<p class="p">
+ *		Integer malesuada mauris et rhoncus malesuada. Donec varius, arcu ac.
+ * 	</p>
+ * </section>
+ */
+.section {
+	padding-top : s-space(default);
+	padding-bottom : s-space(default);
+}
+
+@each $spaceName, $spaceValue in s-setting('spaces') {
+
+	@if $spaceName != default {
+
+		/**
+		 * @name 	Section #{$spaceName}
+		 * Display a #{$spaceName} section with padding on ton and bottom based on the spaces in settings
+		 * @styleguide 		Blocks / Sections
+		 * @example 	html
+		 * <section class="section section--#{$spaceName}">
+		 * 	<p class="p">
+		 *		Integer malesuada mauris et rhoncus malesuada. Donec varius, arcu ac.
+		 * 	</p>
+		 * </section>
+		 */
+		.section--#{$spaceName} {
+			padding-top : s-space($spaceName);
+			padding-bottom : s-space($spaceName);
+		}
+
+	}
+
+}

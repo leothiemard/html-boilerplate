@@ -2,5 +2,13 @@
  * Generic
  * All the generic codebase for the project like typography, resets, etc...
  */
-@import 'gridle',
-		'sugar';
+@import 'color-schema',
+		'fonticons',
+		'gridle',
+		'icons',
+		'responsive-aligns',
+		'responsive-sizes',
+		'responsive-spaces',
+		'sugar',
+		'text-format',
+		'typography';

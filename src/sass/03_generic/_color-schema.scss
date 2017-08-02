@@ -1,0 +1,22 @@
+/**
+ * @name 		Light
+ * Light color schema that set the text color to white
+ * @styleguide 		Layout / Color Schema
+ * @example 	html
+ * <div class="cs-light bkg-default">
+ * 	<p class="p">
+ *  	Aliquam faucibus, sem sed laoreet tristique, libero leo maximus purus.
+ *  </p>
+ * </div>
+ */
+.cs-light {
+
+
+	&, * {
+		color: white;
+	}
+	.#{s-text-format-class()} p,
+	.p {
+		color : s-color(white, -opacity .5);
+	}
+}
