@@ -1,3 +1,5 @@
+![Coffeekraken HTML Boilerplate](.resources/doc-header.jpg)
+
 # Coffeekraken HTML Boilerplate <img src=".resources/coffeekraken-logo.jpg" height="25px" />
 
 <p>
@@ -23,7 +25,7 @@
 		<img src="https://img.shields.io/twitter/url/http/coffeekrakenio.svg?style=social&style=flat-square" />
 	</a>
 	<a href="https://coffeekraken.io">
-		<img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=flat-square&label={website-url}&colorB=f2bc2b&style=flat-square" />
+		<img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=flat-square&label=https://coffeekraken.io&colorB=f2bc2b&style=flat-square" />
 	</a>
 </p>
 
