@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 module.exports = {
 	entry: {
 		'dist/js/app.js' : './src/js/app.js'
@@ -13,5 +14,8 @@ module.exports = {
 			exclude: /(bower_components|node_modules)/,
 			use: 'babel-loader'
 		}]
-	}
+	},
+	plugins: [
+		new webpack.IgnorePlugin(/vertx/)
+	]
 }

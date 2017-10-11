@@ -1,11 +1,11 @@
 {
-  "name": "{project-name}",
-  "version": "{project-version}",
-  "description": "{project-description}",
-  "homepage": "{project-url}",
+  "name": "coffeekraken-html-boilerplate",
+  "version": "1.0.0",
+  "description": "Base HTML files and folder structure with complete build process (js, sass, image compression, etc...) built in",
+  "homepage": "https://coffeekraken.io",
   "repository": {
     "type": "git",
-    "url": "{project-url}"
+    "url": "https://github.com/coffeekraken/html-boilerplate"
   },
   "main": "dist/index.js",
   "watch": {
@@ -17,7 +17,7 @@
     },
     "dist.css": {
       "patterns": [
-        "src/css/**/*"
+        "src/sass/**/*"
       ],
       "extensions": "scss,sass,css"
     },
@@ -32,20 +32,30 @@
         "src/fonts/**/*"
       ],
       "extensions": "eot,woff,woff2,ttf,otf,svg,svgz"
+    },
+    "dist.icons": {
+      "patterns": [
+        "src/icons/**/*"
+      ],
+      "extensions": "svg,svgz"
     }
   },
   "scripts": {
-    "dist": "npm run dist.css && npm run dist.js && npm run dist.img && npm run dist.fonts",
-    "dist.js": "webpack && notify -t dist.js -m Build complete",
-    "dist.css": "node-sass src/sass/style.scss dist/css/style.css  --include-path node_modules --output-style expanded && notify -t dist.css -m Build complete",
-    "dist.img": "rm -rf dist/img && node ./.scripts/imagemin.js && notify -t dist.img -m Build complete",
-    "dist.fonts": "rm -rf dist/fonts && cp -R src/fonts dist/fonts && notify -t dist.fonts -m Build complete",
-    "dist.prod": "npm run dist.prod.css && npm run dist.prod.js && npm run dist.img && npm run dist.fonts && notify -t dist.prod -m Build complete",
-    "dist.prod.js": "webpack --config webpack.prod.config.js && notify -t dist.prod.js -m Build complete",
-    "dist.prod.css": "node-sass src/sass/style.scss dist/css/style.css --include-path node_modules --output-style compressed && notify -t dist.prod.css -m Build complete",
+    "dist": "npm run dist.icons && npm run dist.css && npm run dist.js && npm run dist.img && npm run dist.fonts",
+    "dist.js": "webpack && env TITLE='dist.js' MESSAGE='Complete' ICON='icon-js' npm run notify",
+    "dist.css": "node-sass src/sass/style.scss dist/css/style.css  --include-path node_modules --output-style expanded && env TITLE='dist.css' MESSAGE='Complete' ICON='icon-css' npm run notify",
+    "dist.img": "rm -rf dist/img && node ./.scripts/imagemin.js && env TITLE='dist.img' MESSAGE='Complete' ICON='icon-img' npm run notify",
+    "dist.fonts": "rm -rf dist/fonts && cp -R src/fonts dist/fonts && env TITLE='dist.fonts' MESSAGE='Complete' ICON='icon-fonts' npm run notify",
+    "dist.icons": "npm run dist.fonticon",
+    "dist.fonticon": "gulp icons && env TITLE='dist.icons' MESSAGE='Complete' ICON='icon-icons' npm run notify",
+    "dist.prod": "npm run dist.prod.css && npm run dist.prod.js && npm run dist.img && npm run dist.fonts",
+    "dist.prod.js": "webpack --config webpack.prod.config.js && env TITLE='dist.prod.js' MESSAGE='Complete' ICON='icon-js' npm run notify",
+    "dist.prod.css": "node-sass src/sass/style.scss dist/css/style.css --include-path node_modules --output-style compressed && env TITLE='dist.prod.css' MESSAGE='Complete' ICON='icon-css' npm run notify",
     "carpenter": "coffeekraken-carpenter",
+    "livereload": "livereload 'dist/js/app.js, dist/css/style.css'",
     "watch": "npm-watch",
-    "start": "concurrently --kill-others \"npm run watch\" \"npm run server\"",
+    "notify": "if which terminal-notifier; then terminal-notifier -title $TITLE -message $MESSAGE -appIcon \".resources/$ICON.png\" -timeout 5; fi;",
+    "start": "concurrently --kill-others \"npm run watch\" \"npm run server\" \"npm run livereload\"",
     "server": "gulp server",
     "test": "coffeekraken-testing-stack",
     "changelog": "git-changelog --version_name $npm_package_version  --app_name $npm_package_name --intro \"$npm_package_description\" --logo \".resources/coffeekraken-logo.jpg\""
@@ -58,15 +68,19 @@
   "author": "Coffeekraken <hello@coffeekraken.io>",
   "license": "MIT",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "coffeekraken-gridle": "3.0.0-rc.1",
     "coffeekraken-sugar": "^1.0.0",
-    "coffeekraken-gridle": "3.0.0-rc.1"
+    "cssuseragent": "^2.1.31",
+    "fastclick": "^1.0.6",
+    "lodash": "^4.17.4",
+    "webcomponents.js": "^0.7.24"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^6.4.1",
     "babel-plugin-transform-remove-strict-mode": "0.0.2",
-    "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "chai": "^4.1.2",
@@ -78,20 +92,22 @@
     "git-changelog": "^1.1.2",
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
+    "gulp-connect-php": "^1.0.1",
+    "gulp-iconfont": "^8.0.1",
+    "gulp-iconfont-css": "^2.1.0",
     "http-server": "^0.9.0",
     "imagemin": "^5.2.2",
     "imagemin-gifsicle": "^5.1.0",
     "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-pngquant": "^5.0.0",
     "imagemin-svgo": "^5.2.0",
-    "lodash": "^4.17.4",
+    "livereload": "^0.6.2",
     "node-notifier-cli": "^1.0.1",
     "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
     "npm-watch": "0.2.0",
     "open": "0.0.5",
     "watch": "^1.0.2",
-    "@webcomponents/webcomponentsjs": "^1.0.10",
     "webpack": "^2.0.0"
   }
 }

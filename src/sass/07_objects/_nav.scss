@@ -1,0 +1,5 @@
+@include s-nav-justify-classes();
+@include s-nav-inline-classes();
+@include s-nav-tabs-classes(
+	$colors : default
+);

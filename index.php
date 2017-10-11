@@ -31,6 +31,16 @@ if (preg_match('/\.(?:png|jpg|jpeg|gif|svg|css|js|mp4|ogg|json|eot|ttf|woff|woff
 	ob_start();
 	require('pages' . $p . '.php');
 	$content = ob_get_clean();
+
+	// live reload injection
+	$content = str_replace('</body>', '
+		<!-- LiveReload -->
+		<script>
+			document.write(\'<script src="http://\' + (location.host || \'localhost\').split(\':\')[0] + \':35729/livereload.js?snipver=1"></\' + \'script>\')
+		  </script>
+		  </body>
+	', $content);
+
 	print $content;
 }
 ?>

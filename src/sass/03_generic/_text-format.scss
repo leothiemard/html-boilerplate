@@ -1,0 +1,13 @@
+/**
+ * Text format styling
+ */
+.#{s-text-format-class()} {
+
+	p {
+		margin-bottom:1em;
+		@include s-rhythme-width();
+		// margin-left:auto;
+		// margin-right:auto;
+	}
+
+}

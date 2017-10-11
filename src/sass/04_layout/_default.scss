@@ -1,0 +1,17 @@
+html, body {
+	height : 100%;
+}
+body {
+	-webkit-font-smoothing : auto;
+
+	// autialiazed on retina displays
+	@media screen and (-webkit-min-device-pixel-ratio: 2),
+	   screen and (   min--moz-device-pixel-ratio: 2),
+	   screen and (     -o-min-device-pixel-ratio: 2/1),
+	   screen and (        min-device-pixel-ratio: 2),
+	   screen and (                min-resolution: 192dpi),
+	   screen and (                min-resolution: 2dppx)
+	{
+		-webkit-font-smoothing : antialiased;
+	}
+}

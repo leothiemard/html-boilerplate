@@ -1,0 +1,100 @@
+@font-face {
+	font-family: "fonticons";
+	src: url('../fonts/fonticons/fonticons.eot');
+	src: url('../fonts/fonticons/fonticons.eot?#iefix') format('eot'),
+		url('../fonts/fonticons/fonticons.woff2') format('woff2'),
+		url('../fonts/fonticons/fonticons.woff') format('woff'),
+		url('../fonts/fonticons/fonticons.ttf') format('truetype'),
+		url('../fonts/fonticons/fonticons.svg#fonticons') format('svg');
+}
+
+@mixin icon-styles(
+	$position : after
+) {
+	vertical-align: middle;
+
+	&:#{$position} {
+		font-family: "fonticons";
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: normal;
+		// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+		text-decoration: none;
+		text-transform: none;
+		vertical-align:text-bottom;
+	}
+}
+
+@mixin icon(
+	$icon,
+	$position : after
+) {
+	@include icon-styles($position);
+	
+		@if $icon == angle-down {
+			&:#{$position} {
+				content: "\E001";
+				@content;
+			}
+		}
+	
+		@if $icon == angle-left {
+			&:#{$position} {
+				content: "\E002";
+				@content;
+			}
+		}
+	
+		@if $icon == angle-right {
+			&:#{$position} {
+				content: "\E003";
+				@content;
+			}
+		}
+	
+		@if $icon == angle-up {
+			&:#{$position} {
+				content: "\E004";
+				@content;
+			}
+		}
+	
+}
+
+.icon:after {
+	@include icon-styles(after);
+}
+
+
+.icon-angle-down {
+	@include icon(angle-down, after);
+}
+
+.icon-angle-left {
+	@include icon(angle-left, after);
+}
+
+.icon-angle-right {
+	@include icon(angle-right, after);
+}
+
+.icon-angle-up {
+	@include icon(angle-up, after);
+}
+
+
+
+
+/**
+ * @name 	Icons
+ * Display an icon
+ * @styleguide 		Generic / Icons
+ * @example 		html
+ * <i class="icon icon-angle-down s-bigger"></i>
+ * <i class="icon icon-angle-left s-bigger"></i>
+ * <i class="icon icon-angle-right s-bigger"></i>
+ * <i class="icon icon-angle-up s-bigger"></i>
+
+ */
