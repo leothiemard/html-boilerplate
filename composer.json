@@ -1,0 +1,27 @@
+{
+  "name": "coffeekraken/html-boilerplate",
+  "version": "1.0.0",
+  "description": "Base HTML files and folder structure with complete build process (js, sass, image compression, etc...) built in",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Olivier Bossel",
+      "email": "olivier.bossel@gmail.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url" : "git@github.com:Dwarvesforge/thorin.git"
+    },
+    {
+      "type": "vcs",
+      "url" : "git@github.com:Dwarvesforge/wp-stack.git"
+  }
+],
+  "require": {
+    "dwarvesforge/thorin" : "dev-develop",
+    "dwarvesforge/wp-stack" : "dev-develop",
+    "fzaninotto/faker": "^1.7"
+  }
+}

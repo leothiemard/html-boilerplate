@@ -1,0 +1,12 @@
+version: '2'
+services:
+  web:
+    build: .
+    container_name: html-boilerplate-web
+    command: bash -c "./.docker/start.sh"
+    ports:
+      - "8080:80"
+    volumes:
+      - ../:/var/www/html
+      - ./php.ini:/usr/local/etc/php/php.ini
+      - ./apache.conf:/etc/apache2/sites-available/000-default.conf

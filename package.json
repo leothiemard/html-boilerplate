@@ -102,7 +102,6 @@
     "imagemin-pngquant": "^5.0.0",
     "imagemin-svgo": "^5.2.0",
     "livereload": "^0.6.2",
-    "node-notifier-cli": "^1.0.1",
     "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
     "npm-watch": "0.2.0",
