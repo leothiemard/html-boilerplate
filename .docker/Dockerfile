@@ -22,7 +22,13 @@ RUN chgrp -R www-data /var/www/html \
 
 # install packages
 RUN apt-get update \
-	&& apt-get install zip unzip sudo git -y
+	&& apt-get install zip unzip sudo git zlib1g-dev libfreetype6-dev libjpeg62-turbo-dev libpng12-dev -y
+
+# Install GD
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
+RUN docker-php-ext-install gd
 
 # enable some extensions
 RUN sudo a2enmod rewrite
+RUN	sudo a2enmod expires
+RUN	sudo a2enmod headers

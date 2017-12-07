@@ -3,33 +3,39 @@
 	src: url('<%= fontPath %><%= fontName %>.eot');
 	src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('eot'),
 		url('<%= fontPath %><%= fontName %>.woff2') format('woff2'),
-		url('<%= fontPath %><%= fontName %>.woff') format('woff'),
-		url('<%= fontPath %><%= fontName %>.ttf') format('truetype'),
-		url('<%= fontPath %><%= fontName %>.svg#<%= fontName %>') format('svg');
+		url('<%= fontPath %><%= fontName %>.woff') format('woff');
 }
 
 @mixin <%= cssClass%>-styles(
 	$position : after
 ) {
+	min-width:1em;
+	min-height:1em;
+	position:relative;
+	display:inline-block;
 	vertical-align: middle;
 
 	&:#{$position} {
-		font-family: "<%= fontName %>";
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
-		font-style: normal;
-		font-variant: normal;
-		font-weight: normal;
-		// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
-		text-decoration: none;
-		text-transform: none;
-		vertical-align:text-bottom;
+		font: normal normal normal 1em/1 "<%= fontName %>";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		display:block;
+		position:absolute;
+		width:1em; height:1em;
+		top:50%; left:50%;
+		@include s-translate(-50%,-50%);
+		// vertical-align: middle;
 	}
 }
 
+$icons : ();
+<% _.each(glyphs, function(glyph) { %>
+	$icons : append($icons, <%= glyph.fileName %>);
+<% }); %>
+
 @mixin icon(
 	$icon,
-	$position : after
+	$position : before
 ) {
 	@include <%= cssClass %>-styles($position);
 	<% _.each(glyphs, function(glyph) { %>
@@ -42,13 +48,13 @@
 	<% }); %>
 }
 
-.<%= cssClass %>:after {
-	@include <%= cssClass%>-styles(after);
+.<%= cssClass %>:before {
+	@include <%= cssClass%>-styles(before);
 }
 
 <% _.each(glyphs, function(glyph) { %>
 .<%= cssClass %>-<%= glyph.fileName %> {
-	@include icon(<%= glyph.fileName %>, after);
+	@include icon(<%= glyph.fileName %>, before);
 }
 <% }); %>
 

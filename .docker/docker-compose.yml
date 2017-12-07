@@ -3,10 +3,16 @@ services:
   web:
     build: .
     container_name: html-boilerplate-web
-    command: bash -c "./.docker/start.sh"
+    command: bash -c "./.docker/up.sh"
     ports:
       - "8080:80"
+    env_file:
+      - ./.env
     volumes:
       - ../:/var/www/html
       - ./php.ini:/usr/local/etc/php/php.ini
       - ./apache.conf:/etc/apache2/sites-available/000-default.conf
+networks:
+  default:
+    external:
+      name: html-boilerplate-network

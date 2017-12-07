@@ -43,6 +43,7 @@ Base HTML files and folder structure with complete build process (js, sass, imag
 - Livereload built in
 - PHP development server built in
 - Docker container configuration built in
+- Base `.htaccess` file (shamefully taken from [HTML5 boilerplate](https://github.com/h5bp/html5-boilerplate))
 - Automatic changelog generation through git-changelog
 - [Coffeekraken carpenter](https://github.com/coffeekraken/carpenter) integrated
 - [CSSUA](http://cssuseragent.org/) built in
@@ -86,13 +87,17 @@ npm start
 - ```npm run dist.img``` : Compress the images and copy them into distribution
 - ```npm run dist.fonts``` : Build the fonts distribution
 - ```npm run dist.icons``` : Build the icons font
+- ```npm run dist.criticalcss``` : Generate the `dist/css/critical.css` file from depending on the `pages.json` defined pages
 - ```npm run dist.prod``` : Build the production version of the distribution
 - ```npm run dist.prod.js```: Build the production version of the js distribution
 - ```npm run dist.prod.css```: Build the production version of the css distribution¨
+- ```npm run data``` : Process the files located in the `data-src` folder to the `data` folder
+- ```npm run data.img``` : Minify the images of the `data-src` folder to the `data` folder
 - ```npm run carpenter``` : Start the carpenter interface
+- ```npm run livereload``` : Start the livereload server and monitor the `dist/js/app.js` and `dist/css/style.css` files
 - ```npm run watch``` : Watch the files and build when needed (called by npm start automativcally)
 - ```npm run start``` : Build/monitor src files and start the http server
-- ```npm run server``` : Start the http server
+- ```npm run server``` : Start the http (PHP) server accessible on port `8080`
 - ```npm run test``` : Run the tests
 - ```npm run changelog``` : Build the changelog from the git commits ([see here](https://www.npmjs.com/package/git-changelog) for more documentation) 
 

@@ -8,7 +8,16 @@ const spawnSync = require('child_process').spawnSync;
 
 console.log('------------ Optimizing images...');
 
-imagemin([process.env.PWD + '/src/img/**/*'], process.env.PWD + '/dist/img', {
+console.log(process.env.PWD);
+
+var program = require('commander');
+program
+  .version('1.0.0')
+  .option('-s, --sources [value]', 'Sources of images to minify', process.env.PWD + '/src/img')
+  .option('-o, --output [value]', 'Output folder where to put the minified images', process.env.PWD + '/dist/img')
+  .parse(process.argv);
+
+imagemin([program.sources + '/**/*'], program.output, {
 	plugins: [
 		imageminJpegRecompress({
 			accurate : true,
@@ -24,9 +33,9 @@ imagemin([process.env.PWD + '/src/img/**/*'], process.env.PWD + '/dist/img', {
 		imageminSvgo({})
 	]
 }).then(files => {
-	const srcSizeSpawn = spawnSync('du', ['-sh', process.env.PWD + '/src/img']);
+	const srcSizeSpawn = spawnSync('du', ['-sh', program.sources]);
 	const srcSize = srcSizeSpawn.stdout.toString().split(/\t/)[0];
-	const distSizeSpawn = spawnSync('du', ['-sh', process.env.PWD + '/dist/img']);
+	const distSizeSpawn = spawnSync('du', ['-sh', program.output]);
 	const distSize = distSizeSpawn.stdout.toString().split(/\t/)[0];
 	console.log('- src/img folder size :  ' + srcSize);
 	console.log('- dist/img folder size : ' + distSize);
