@@ -36,12 +36,18 @@
 @import '05_pages/all';
 
 /**
- * Blocks
- * All the blocks styling.
- * A block can contain other blocks or objects and does not have to relay on his ancestors
- * to be properly displayed.
+ * Organisms
+ * All the organisms styling.
+ * All organisms specific classes have to start with `.o-`.
  */
-@import '06_blocks/all';
+@import '06_organisms/all';
+
+/**
+ * Molecules
+ * All the molecules styling.
+ * All molecules specific classes have to start with `.m-`.
+ */
+@import '07_molecules/all';
 
 /**
  * Atoms
@@ -57,6 +63,6 @@
  * All the things that does not fit in any others directory. Try to keep this folder has small as possible.
  * If you have to many things in here, that mean that you probably need to refactor your codebase...
  */
-@import '08_trumps/all';
+@import '09_trumps/all';
 
 // DO NOT UPDATE OR ADD CONTENT TO THIS FILE...
