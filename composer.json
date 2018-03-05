@@ -9,19 +9,8 @@
       "email": "olivier.bossel@gmail.com"
     }
   ],
-  "repositories": [
-    {
-      "type": "vcs",
-      "url" : "git@github.com:Dwarvesforge/thorin.git"
-    },
-    {
-      "type": "vcs",
-      "url" : "git@github.com:Dwarvesforge/wp-stack.git"
-  }
-],
   "require": {
-    "dwarvesforge/thorin" : "dev-develop",
-    "dwarvesforge/wp-stack" : "dev-develop",
+    "dwarvesforge/thorin" : "^1.0.0",
     "fzaninotto/faker": "^1.7"
   }
 }

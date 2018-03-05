@@ -1,0 +1,8 @@
+/**
+ * Molecules
+ * All the molecules styling.
+ * A molecule response to the same rules has the organisms, unless they cannot contain any other molecules.
+ * It normally contains only other atoms.
+ * All molecules classes have to start with `.m-`.
+ */
+@import 'm-table';

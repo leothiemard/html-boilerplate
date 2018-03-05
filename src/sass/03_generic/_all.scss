@@ -2,11 +2,16 @@
  * Generic
  * All the generic codebase for the project like typography, resets, etc...
  */
-@import 'fonticons',
+@import 'color-schema',
+		'fonticons',
 		'gridle',
-		'sugar',
 		'responsive-aligns',
 		'responsive-sizes',
 		'responsive-spaces',
 		'text-format',
-		'typography';
+		'typography',
+		'vertical-rhythm';
+
+// import sugar a last just for classes order
+// and avoid some overriding
+@import 'sugar';

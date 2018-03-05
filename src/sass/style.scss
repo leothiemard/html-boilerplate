@@ -23,10 +23,11 @@
 @import '03_generic/all';
 
 /**
- * Layout
- * All the layout level specific styling.
+ * Templates
+ * All the templates level specific styling.
+ * Templates specific classes have to start with `.t-`.
  */
-@import '04_layout/all';
+@import '04_templates/all';
 
 /**
  * Pages
@@ -43,11 +44,13 @@
 @import '06_blocks/all';
 
 /**
- * Objects
- * All the objects styling.
- * An object response to the same rules has the blocks, unless they cannot contain any other objects or blocks.
+ * Atoms
+ * All the atoms styling.
+ * An atom is the most basic component. It cannot contain any other atoms or anything else and have to be context free, meaning that
+ * it need to be usable everywhere we want without having to deal with pre-defined margins, etc...
+ * All atoms specific classes have to start with `.a-`.
  */
-@import '07_objects/all';
+@import '08_atoms/all';
 
 /**
  * Trumps

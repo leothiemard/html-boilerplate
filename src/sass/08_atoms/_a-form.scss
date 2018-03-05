@@ -1,0 +1,5 @@
+@include s-component('a-form') {
+	@include s-form-classes(
+		$colors : default
+	);
+}
