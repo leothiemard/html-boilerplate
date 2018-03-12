@@ -41,7 +41,7 @@
     "dist:favicons": "node .scripts/favicons.js --source src/img/favicon.png --output dist/favicons --html-output dist/favicons/favicons.html --path '/dist/favicons' --theme '#fff' --background '#fff'",
     "dist:criticalcss": "node .scripts/criticalcss.js",
     "dist:prod": "npm run dist:fonts && npm run dist:icons && npm run dist:prod:css && npm run dist:prod:js && npm run dist:img",
-    "dist:prod:js": "webpack --config webpack.prod:config.js",
+    "dist:prod:js": "webpack --config webpack.prod.config.js",
     "dist:prod:css": "node-sass src/sass/style.scss dist/css/style.css --include-path node_modules --output-style compressed",
     "data": "rm -rf data && cp -R data-src data && npm run data:img && npm run data:img:placeholder",
     "data:img": "node .scripts/imagemin.js -s data-src -o data",
